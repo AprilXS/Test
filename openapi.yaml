@@ -1,0 +1,46 @@
+swagger: "2.0"
+info:
+  title: mySampleAPI
+  description: API Walk through.
+  version: 1.0.0
+
+host: myapi.apigateway.testing-415602.cloud.goog
+basePath: /
+schemes:
+  - https
+  - http
+
+paths:
+  /cloud-run:
+    get:
+      operationId: getCloudRun
+      summary: Open an existing running image in Cloud Run.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://hello-a7hh3xkpzq-uc.a.run.app
+
+  /cloud-function:
+    get:
+      operationId: getCloudFunction
+      summary: Open an existing GET running Cloud Function.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-testing-415602.cloudfunctions.net/getFunction
+    post:
+      operationId: postCloudFunction
+      summary: Open an existing POST running Cloud Function.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-testing-415602.cloudfunctions.net/postFunction
